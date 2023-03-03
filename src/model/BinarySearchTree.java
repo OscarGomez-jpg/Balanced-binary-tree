@@ -31,6 +31,33 @@ public class BinarySearchTree {
         return null;
     }
 
+    public int deepnest() {
+        int min = minimum(root, 1);
+        int max = maximum(root, 1);
+
+        if (min > max) {
+            return min;
+        }
+
+        return max;
+    }
+
+    private int minimum(Node pointer, int acu) {
+        if (pointer.getLeft() == null) {
+            return acu;
+        }
+
+        return minimum(pointer.getLeft(), ++acu);
+    }
+
+    private int maximum(Node pointer, int acu) {
+        if (pointer.getRight() == null) {
+            return acu;
+        }
+
+        return maximum(pointer.getRight(), ++acu);
+    }
+
     public String printGraf() {
         return printGraf(root);
     }

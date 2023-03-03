@@ -48,9 +48,10 @@ public class Main {
         String menu = 
                 "1. Agregar registro\n" +
                 "2. Imprimir arbol\n" + 
+                "3. Profundidad de arbol\n" + 
                 "0. Salir";
 
-        menu = container.box(menu, 26, "|", "-");
+        menu = container.box(menu, 24, "|", "-");
 
         return head + menu;
     }
@@ -67,10 +68,13 @@ public class Main {
                 msg = printTree();
                 System.out.println(msg);
                 break;
+            case 3:
+                msg = deepnest();
+                System.out.println(msg);
+                break;
             case 0:
                 System.out.println("Exit program.");
                 break;
-
             default:
                 System.out.println("Invalid Option");
                 break;
@@ -97,6 +101,11 @@ public class Main {
         return controller.getBst().printGraf();
     }
     
+    public String deepnest() {
+        System.out.print("La profundidad del arbol es: ");
+        return "" + controller.getBst().deepnest();
+    }
+
     /**
      * This function cleans the console, is just a stetic feature
      */
